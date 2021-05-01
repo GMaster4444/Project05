@@ -102,6 +102,15 @@ void Entity::Heal(Entity *target, uint32_t amount, const std::string & healName)
     target->take_healing(amount);
 }
 
+void Entity::HealingAttack(Entity *target, uint32_t damageAmount, uint32_t healAmount, const std::string &healingAttackName) {
+    std::cout << this->Name() << " uses " << healingAttackName << " on target "
+              << target->Name() << " dealing " << damageAmount << " and healing "
+              << "themselves for " << healAmount
+              << std::endl;
+    target->take_damage(damageAmount);
+    this->take_healing(healAmount);
+}
+
 void Entity::take_damage(uint32_t amount)
 {
     if(_hp < amount)

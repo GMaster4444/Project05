@@ -11,13 +11,14 @@ Necromancer::Necromancer(JsonEntityBuilder &builder, JsonItemBuilder & inventory
 
 void Necromancer::BoneSpike(Entity *target)
 {
-    Attack(target, GetIntelligence() * 1.0, "BoneSpike");
+    Attack(target, GetIntelligence() * 1.0, "Bone Spike");
 }
 
 void Necromancer::LifeDrain(Entity *target)
 {
-    Attack(target, GetWisdom() * 1.0, "Magic Missile");
-    Heal(this, GetWisdom() * 0.2, "Magic Missle");
+    HealingAttack(target, GetWisdom() * 1.0, GetWisdom() * 0.2, "Life Drain");
+    //Attack(target, GetWisdom() * 1.0, "Magic Missile");
+    //Heal(this, GetWisdom() * 0.2, "Magic Missle");
 }
 
 void Necromancer::OutputStatus() const
@@ -25,6 +26,7 @@ void Necromancer::OutputStatus() const
     std::cout << Class() << ": " << this->Name()
                 << "\n\tCurrent HP: " << this->CurrentHP()
                 << "\n\tIntelligence: " << this->GetIntelligence()
+                << "\n\tWisdom: " << this->GetWisdom()
                 << std::endl;
 
     PrintInventory();

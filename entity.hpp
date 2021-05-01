@@ -50,6 +50,7 @@ protected:
 
     void Attack(Entity * target, uint32_t amount, const std::string &attackName);
     void Heal(Entity *target, uint32_t amount, const std::string &healName);
+    void HealingAttack(Entity *target, uint32_t damageAmount, uint32_t healAmount, const std::string &healingAttackName);
 
 public:
 
